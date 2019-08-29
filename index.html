@@ -18,19 +18,19 @@
     <script>
         window.fbAsyncInit = function() {
           FB.init({
-            appId            : 'your-app-id',
+            appId            : '740465436160051',
             autoLogAppEvents : true,
             xfbml            : true,
             version          : 'v4.0'
           });
           FB.login(function(response) {
             if (response.authResponse) {
-            console.log('Welcome!  Fetching your information.... ');
+                console.log('Welcome!  Fetching your information.... ');
             FB.api('/me', function(response) {
-            console.log('Good to see you, ' + response.name + '.');
+                console.log('Good to see you, ' + response.name + '.');
             });
             } else {
-            console.log('User cancelled login or did not fully authorize.');
+                console.log('User cancelled login or did not fully authorize.');
             }
         });
         };
