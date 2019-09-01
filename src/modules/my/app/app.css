@@ -2,9 +2,23 @@
 .container {
     display: flex;
     flex-flow: row wrap;
-    justify-content: left;
+    justify-content: center;
 }
 
 nav {
-  display: flex;
+    display: flex;
+}
+
+/* Medium screens */
+@media all and (max-width: 1250px) {
+    .container {
+        justify-content: center;
+    }
+}
+
+/* Small screens */
+@media all and (max-width: 600px) {
+    .container {
+        justify-content: center;
+    }
 }

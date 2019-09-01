@@ -11,6 +11,6 @@ a {
     text-decoration: var(--text-decoration);
 }
 
-ui-fb-share {
-    float: right; 
+my-fb-share {
+    float: right;
 }

@@ -1,8 +1,9 @@
 <template>
     <div class="description"><slot></slot></div>
     <p>
-        <a href={sourceURL} target="source">View Source</a>
-        <my-fb-share>
-        </my-fb-share>
+        <a href={sourceURL.url} target="source">View Source</a>
+        <template if:true={token}>
+            <my-fb-share content={sourceURL} token={token}> </my-fb-share>
+        </template>
     </p>
 </template>

@@ -1,36 +1,22 @@
 <template>
+    <my-navbar onlogin={handleLogin} onchange={handleChange}> </my-navbar>
 
-    <nav>  
-        <ui-select
-            label="Country"
-            value={country}
-            onchange={handleChange}
-            options={countryOptions}
-        >
-        </ui-select>
-        <ui-select
-            label="Category"
-            value={category}
-            onchange={handleChange}
-            options={categoryOptions}
-        >
-        </ui-select>
-    </nav>
+    <br />
+    <br />
+    <br />
 
-    <div class="container">  
+    <div class="container">
         <template if:true={newsList}>
             <template for:each={newsList} for:item="news">
                 <ui-card title={news.title} key={news.url}>
                     <div>
                         {news.description}
-                    </div> 
-
-                    <img src={news.urlToImage} style="max-width: 100%;">
-                    
-                    <my-view-source source={news.url} slot="footer">
+                    </div>
+                    <img src={news.urlToImage} style="max-width: 100%;" />
+                    <my-view-source token={token} source={news} slot="footer">
                     </my-view-source>
                 </ui-card>
             </template>
-        </template>     
+        </template>
     </div>
 </template>

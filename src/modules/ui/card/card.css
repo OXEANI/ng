@@ -1,6 +1,5 @@
 /* Large */
 
-
 .card {
     background: #fff;
     border: 0.05rem solid #dadee4;
@@ -62,17 +61,16 @@
     vertical-align: bottom;
 }
 
-  /* Medium screens */
-  @media all and (max-width: 1250px) {
+/* Medium screens */
+@media all and (max-width: 1250px) {
     .card {
-        max-width: 40vw;        
+        max-width: 40vw;
     }
-  }
-  
-  /* Small screens */
-  @media all and (max-width: 600px) {
+}
+
+/* Small screens */
+@media all and (max-width: 600px) {
     .card {
-        max-width: 100%;      
-         
+        max-width: 100%;
     }
-  }
+}
