@@ -1,11 +1,11 @@
+
 .bg {
     position: fixed;
     width: 100vw;
     height: 100vh;
     background: rgba(255, 255, 255, 0.85);
 }
-.content {
-    opacity: 1.25;
+.container {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -15,4 +15,12 @@
 a {
     color: var(--color-text-link);
     text-decoration: var(--text-decoration);
+}
+
+
+/* Small screens */
+@media all and (max-width: 600px) {
+    .container {
+        width: 100%;
+    }
 }
