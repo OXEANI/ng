@@ -7,4 +7,9 @@ export default class ViewSource extends LightningElement {
     get sourceURL() {
         return this.source;
     }
+
+    handleShare() {
+        const selectEvent = new CustomEvent('share');
+        this.dispatchEvent(selectEvent);
+    }
 }

@@ -1,5 +1,12 @@
 <template>
+    <template if:true={isLogging}>
+        <ui-spinner></ui-spinner>
+    </template>
+
     <my-navbar onlogin={handleLogin} onchange={handleChange}> </my-navbar>
+    <template if:true={showModal}>
+        <ui-modal onclose={handleClose}></ui-modal>
+    </template>
 
     <br />
     <br />
@@ -13,7 +20,12 @@
                         {news.description}
                     </div>
                     <img src={news.urlToImage} style="max-width: 100%;" />
-                    <my-view-source token={token} source={news} slot="footer">
+                    <my-view-source
+                        onshare={handleShare}
+                        token={token}
+                        source={news}
+                        slot="footer"
+                    >
                     </my-view-source>
                 </ui-card>
             </template>

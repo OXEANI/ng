@@ -1,4 +1,8 @@
 <template>
+    <template if:true={isLogging}>
+        <ui-spinner></ui-spinner>
+    </template>
+
     <header class="header">
         <h1 class="logo"><a href="#" onclick={handleLogin}>NG</a></h1>
         <ul class="main-nav">

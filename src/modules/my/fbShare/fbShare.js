@@ -9,6 +9,9 @@ export default class Card extends LightningElement {
         this.fbInit = true;
     }
     handleClick() {
+        const selectEvent = new CustomEvent('share');
+        this.dispatchEvent(selectEvent);
+        const that = this;
         const content = this.content;
         const token = this.token;
         const formatTitle = content.title.substring(
@@ -25,12 +28,9 @@ export default class Card extends LightningElement {
             },
             function(response) {
                 if (!response || response.error) {
-                    alert('Error occured');
-                    console.log(response.error);
-                } else {
-                    alert('Post ID: ' + response.id);
-                    console.log(response);
+                    alert(response.error);
                 }
+                that.dispatchEvent(selectEvent);
             }
         );
     }

@@ -5,7 +5,8 @@ export default class App extends LightningElement {
     @track country = 'pt';
     @track category = '';
     @track token;
-    @track isLogin = false;
+    @track isLogging = false;
+    @track showModal = false;
     newsInit = false;
     startUrl = 'https://newsapi.org/';
     endpoint = 'v2/top-headlines?';
@@ -22,7 +23,7 @@ export default class App extends LightningElement {
         window.fbAsyncInit = function() {
             FB.init({
                 appId: '740465436160051',
-                autoLogAppEvents: true,
+                cookie: true,
                 xfbml: true,
                 version: 'v4.0'
             });
@@ -44,21 +45,27 @@ export default class App extends LightningElement {
         const that = this;
         FB.api('/me/accounts', 'get', {}, function(response) {
             if (!response || response.error) {
-                console.log(response.error);
+                alert(response.error);
             } else {
                 that.token = response.data[0].access_token;
-                console.log(response.data[0].access_token);
             }
         });
+    }
+    handleShare() {
+        this.isLogging = !this.isLogging;
+        if (this.isLogging === false) {
+            this.showModal = true;
+        }
+    }
+    handleClose() {
+        this.showModal = false;
     }
 
     async getNews(country, category) {
         let reqUrl = `${this.startUrl}${this.endpoint}country=${country}&category=${category}&apiKey=${this.apiKey}`;
-        console.log(reqUrl);
         let response = await fetch(reqUrl);
         let data = await response.json();
-        console.log(data);
-
+        this.isLogging = false;
         return data;
     }
 }

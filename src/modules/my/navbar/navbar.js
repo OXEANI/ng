@@ -1,6 +1,7 @@
 import { LightningElement, track } from 'lwc';
 
 export default class App extends LightningElement {
+    @track isLogging = false;
     countryOptions = [
         { label: 'Portugal', value: 'pt' },
         { label: 'França', value: 'fr' },
@@ -17,14 +18,23 @@ export default class App extends LightningElement {
     ];
 
     handleLogin() {
-        const selectEvent = new CustomEvent('login');
         const that = this;
-        FB.login(
-            function(response) {
+        this.isLogging = true;
+        const selectEvent = new CustomEvent('login');
+        FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
                 that.dispatchEvent(selectEvent);
-            },
-            { scope: 'manage_pages, publish_pages' }
-        );
+                that.isLogging = false;
+            } else {
+                FB.login(
+                    function(response) {
+                        that.dispatchEvent(selectEvent);
+                        that.isLogging = false;
+                    },
+                    { scope: 'manage_pages, publish_pages' }
+                );
+            }
+        });
     }
     handleChange(event) {
         const selectEvent = new CustomEvent('change', {
