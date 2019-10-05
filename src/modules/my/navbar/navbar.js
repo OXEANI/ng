@@ -2,7 +2,6 @@ import { LightningElement, track } from 'lwc';
 
 export default class App extends LightningElement {
     @track isLogging = false;
-
     countryOptions = [
         { label: 'Portugal', value: 'pt'},
         { label: 'United Arab Emirates', value: 'ae'},

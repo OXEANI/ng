@@ -4,6 +4,7 @@
     </template>
 
     <my-navbar onlogin={handleLogin} onchange={handleChange}> </my-navbar>
+    
     <template if:true={showModal}>
         <ui-modal onclose={handleClose}></ui-modal>
     </template>
@@ -12,7 +13,10 @@
     <br />
     <br />
 
+
     <div class="container">
+        
+        <my-m5-sentiment news="Hello world!"></my-m5-sentiment>
         <template if:true={newsList}>
             <template for:each={newsList} for:item="news">
                 <ui-card title={news.title} key={news.url}>

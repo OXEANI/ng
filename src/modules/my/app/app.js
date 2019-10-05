@@ -2,11 +2,12 @@ import { LightningElement, track } from 'lwc';
 
 export default class App extends LightningElement {
     @track newsList;
-    @track country = 'pt';
+    @track country = 'gb';
     @track category = '';
     @track token;
     @track isLogging = false;
     @track showModal = false;
+    @track allText;
     newsInit = false;
     startUrl = 'https://newsapi.org/';
     endpoint = 'v2/top-headlines?';
@@ -39,6 +40,7 @@ export default class App extends LightningElement {
         this.getNews(this.country, this.category).then(
             data => (this.newsList = data.articles)
         );
+        window.scrollTo(0, 0)
     }
 
     handleLogin(event) {

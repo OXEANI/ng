@@ -3,6 +3,9 @@
     "version": "0.0.0",
     "bugs": "https://github.com/oxeani/ng/issues",
     "dependencies": {
+        "@tensorflow-models/toxicity": "^1.2.0",
+        "@tensorflow/tfjs": "^1.2.9",
+        "ibm-watson": "^5.0.0",
         "lwc-services": "^1.2.2"
     },
     "devDependencies": {
@@ -14,8 +17,7 @@
     },
     "homepage": "https://oxeani.github.io/ng",
     "husky": {
-        "hooks": {
-        }
+        "hooks": {}
     },
     "keywords": [
         "lwc"
