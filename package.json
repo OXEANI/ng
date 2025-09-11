@@ -6,7 +6,7 @@
         "@tensorflow-models/toxicity": "^1.2.0",
         "@tensorflow/tfjs": "^1.2.9",
         "ibm-watson": "^5.0.0",
-        "lwc-services": "^1.2.2"
+        "lwc-services": "^3.2.2"
     },
     "devDependencies": {
         "husky": "^2.7.0",
